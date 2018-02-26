@@ -22,6 +22,7 @@
 		81EAB6A7204472A3001D0E60 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A6204472A3001D0E60 /* FeedViewController.swift */; };
 		81EAB6A9204472B1001D0E60 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A8204472B1001D0E60 /* UploadViewController.swift */; };
 		81EAB6AC204473BE001D0E60 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6AB204473BE001D0E60 /* PostTableViewCell.swift */; };
+		81EAB6AE204486A7001D0E60 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6AD204486A7001D0E60 /* StorageService.swift */; };
 		8365E27D0D4671FCB8A3897A /* Pods_AC_iOS_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9371F73F5020F73AC5E13FF9 /* Pods_AC_iOS_Final.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		81EAB6A6204472A3001D0E60 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		81EAB6A8204472B1001D0E60 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		81EAB6AB204473BE001D0E60 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		81EAB6AD204486A7001D0E60 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		9371F73F5020F73AC5E13FF9 /* Pods_AC_iOS_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC_iOS_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FF4A6EF8F9E9BD711310B8 /* Pods-AC-iOS-Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				81EAB69D2044656C001D0E60 /* DBService.swift */,
 				81EAB69F2044661D001D0E60 /* DBService+Add.swift */,
 				81EAB6A420446818001D0E60 /* DBService+Get.swift */,
+				81EAB6AD204486A7001D0E60 /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -264,7 +267,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -272,7 +274,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -289,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81EAB6AC204473BE001D0E60 /* PostTableViewCell.swift in Sources */,
+				81EAB6AE204486A7001D0E60 /* StorageService.swift in Sources */,
 				81EAB6A520446818001D0E60 /* DBService+Get.swift in Sources */,
 				81EAB6A9204472B1001D0E60 /* UploadViewController.swift in Sources */,
 				81EAB6A7204472A3001D0E60 /* FeedViewController.swift in Sources */,

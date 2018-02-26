@@ -25,6 +25,9 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Upload Lomograph"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPost))
+        
+        
         self.imageView.layer.borderWidth = 0.5
         self.commentTextView.layer.borderWidth = 0.5
         commentTextView.delegate = self
@@ -32,6 +35,17 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
         imagePickerVC.sourceType = .photoLibrary
     }
 
+    @objc private func addPost() {
+        if let postCaption = self.commentTextView.text, postCaption != "Write about your Lomograph" {
+            
+            let image = self.imageView.image
+            DBService.manager.addPost(withImage: image!, comment: postCaption)
+            print("Post Added")
+        } else {
+            print("Failed to Add Post")
+        }
+    }
+    
     public static func storyboardInstance() -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let presentedVC = storyboard.instantiateViewController(withIdentifier: "UploadViewController") as! UploadViewController
