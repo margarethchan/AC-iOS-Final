@@ -35,11 +35,23 @@ class AuthUserService: NSObject {
             }
             if let user = user {
                 self.delegate?.didLogin!(self)
-                
             }
         }
     }
     
+    // Get current user
+    public func getCurrentUser() -> User? {
+        return auth.currentUser
+    }
+    
+    // Signs the current user out of the app and Firebase.
+    public func signOut() {
+        do {
+            try auth.signOut()
+        } catch {
+            print(error)
+        }
+    }
     
 }
 

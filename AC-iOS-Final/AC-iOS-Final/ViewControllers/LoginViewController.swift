@@ -23,11 +23,6 @@ class LoginViewController: UIViewController {
         
         AuthUserService.manager.delegate = self
         AuthUserService.manager.loginToAccount(withEmail: email, andPassword: password)
-        // login func from firebase
-        
-        // alert if login successful
-        
-        // alert if login failed
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -45,11 +40,6 @@ class LoginViewController: UIViewController {
                 self.showAlert(title: "New Account for \(user.email ?? "no email") created", message: "")
             }
         }
-        // create account func from firebase
-        
-        // alert if registration successful
-        
-        // alert if registration failed
     }
     
     
@@ -65,6 +55,12 @@ class LoginViewController: UIViewController {
     }
     
     
+    public static func storyboardInstance() -> LoginViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let presentedVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        return presentedVC
+    }
+    
     
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -74,6 +70,25 @@ class LoginViewController: UIViewController {
     }
 
 
+    func showAlertLoginSuccess(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alert in
+            // go to tab bar controller
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let feedVC = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as! FeedViewController
+            let firstTabNavCon = UINavigationController(rootViewController: feedVC)
+            
+            let uploadVC = storyboard.instantiateViewController(withIdentifier: "UploadViewController") as! UploadViewController
+            let secondTabNavCon = UINavigationController(rootViewController: uploadVC)
+            
+            let tabBarCon = UITabBarController()
+            tabBarCon.viewControllers = [firstTabNavCon, secondTabNavCon]
+            self.present(tabBarCon, animated: true, completion: nil)
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -85,13 +100,14 @@ extension LoginViewController: UITextFieldDelegate {
 
 extension LoginViewController: AuthUserServiceDelegate {
     func didFailLogin(_ authUserService: AuthUserService, error: Error) {
-        self.showAlert(title: "Login Failed!", message: "\(error.localizedDescription)")
+        self.showAlert(title: "Login Failed", message: "\(error.localizedDescription)")
+        print("Login Failed")
     }
     
     func didLogin(_ authUserService: AuthUserService) {
+    self.showAlertLoginSuccess(title: "Login Successful", message: "")
+        print("Login Successful")
         
-        self.showAlert(title: "Login Successful", message: "")
-        // go to tab bar controller
         
     }
     

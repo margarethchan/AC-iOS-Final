@@ -19,8 +19,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
-        
+        if let _ = AuthUserService.manager.getCurrentUser() {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let feedVC = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as! FeedViewController
+            feedVC.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "photostackbw"), tag: 0)
+            let firstTabNavCon = UINavigationController(rootViewController: feedVC)
+            
+            let uploadVC = storyboard.instantiateViewController(withIdentifier: "UploadViewController") as! UploadViewController
+            uploadVC.tabBarItem = UITabBarItem(title: "All Flashcards", image: #imageLiteral(resourceName: "upload"), tag: 1)
+            let secondTabNavCon = UINavigationController(rootViewController: uploadVC)
+            
+            let tabBarCon = UITabBarController()
+            tabBarCon.viewControllers = [firstTabNavCon, secondTabNavCon]
+            
+            window?.rootViewController = tabBarCon
+            
+            window?.makeKeyAndVisible()
+        } else {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = LoginViewController.storyboardInstance()
+            window?.makeKeyAndVisible()
+        }
         
         
         return true

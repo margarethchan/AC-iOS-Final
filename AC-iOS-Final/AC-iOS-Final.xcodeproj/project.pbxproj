@@ -19,6 +19,9 @@
 		81EAB6A02044661D001D0E60 /* DBService+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB69F2044661D001D0E60 /* DBService+Add.swift */; };
 		81EAB6A3204466BC001D0E60 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A2204466BC001D0E60 /* Post.swift */; };
 		81EAB6A520446818001D0E60 /* DBService+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A420446818001D0E60 /* DBService+Get.swift */; };
+		81EAB6A7204472A3001D0E60 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A6204472A3001D0E60 /* FeedViewController.swift */; };
+		81EAB6A9204472B1001D0E60 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A8204472B1001D0E60 /* UploadViewController.swift */; };
+		81EAB6AC204473BE001D0E60 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6AB204473BE001D0E60 /* PostTableViewCell.swift */; };
 		8365E27D0D4671FCB8A3897A /* Pods_AC_iOS_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9371F73F5020F73AC5E13FF9 /* Pods_AC_iOS_Final.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,9 @@
 		81EAB69F2044661D001D0E60 /* DBService+Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBService+Add.swift"; sourceTree = "<group>"; };
 		81EAB6A2204466BC001D0E60 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		81EAB6A420446818001D0E60 /* DBService+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBService+Get.swift"; sourceTree = "<group>"; };
+		81EAB6A6204472A3001D0E60 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		81EAB6A8204472B1001D0E60 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		81EAB6AB204473BE001D0E60 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		9371F73F5020F73AC5E13FF9 /* Pods_AC_iOS_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC_iOS_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FF4A6EF8F9E9BD711310B8 /* Pods-AC-iOS-Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,12 +89,13 @@
 		54915213203F335F009C7138 /* AC-iOS-Final */ = {
 			isa = PBXGroup;
 			children = (
+				5491521D203F335F009C7138 /* LaunchScreen.storyboard */,
 				54915214203F335F009C7138 /* AppDelegate.swift */,
 				81EAB69620446150001D0E60 /* Services */,
 				81EAB69520446140001D0E60 /* ViewControllers */,
+				81EAB6AA204473A5001D0E60 /* CustomTableViewCell */,
 				81EAB6A1204466A8001D0E60 /* Models */,
 				54915218203F335F009C7138 /* Main.storyboard */,
-				5491521D203F335F009C7138 /* LaunchScreen.storyboard */,
 				54915220203F335F009C7138 /* Info.plist */,
 				81EAB69720446261001D0E60 /* GoogleService-Info.plist */,
 				54915226203F339A009C7138 /* Assets.xcassets */,
@@ -109,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				54915216203F335F009C7138 /* LoginViewController.swift */,
+				81EAB6A6204472A3001D0E60 /* FeedViewController.swift */,
+				81EAB6A8204472B1001D0E60 /* UploadViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -131,6 +140,14 @@
 				81EAB6A2204466BC001D0E60 /* Post.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		81EAB6AA204473A5001D0E60 /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				81EAB6AB204473BE001D0E60 /* PostTableViewCell.swift */,
+			);
+			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81EAB6AC204473BE001D0E60 /* PostTableViewCell.swift in Sources */,
 				81EAB6A520446818001D0E60 /* DBService+Get.swift in Sources */,
+				81EAB6A9204472B1001D0E60 /* UploadViewController.swift in Sources */,
+				81EAB6A7204472A3001D0E60 /* FeedViewController.swift in Sources */,
 				81EAB69A20446365001D0E60 /* AuthUserService.swift in Sources */,
 				81EAB69E2044656C001D0E60 /* DBService.swift in Sources */,
 				81EAB69C204463D5001D0E60 /* AuthUserServiceDelegate.swift in Sources */,
