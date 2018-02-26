@@ -12,6 +12,7 @@
 		5491521A203F335F009C7138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54915218203F335F009C7138 /* Main.storyboard */; };
 		5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491521D203F335F009C7138 /* LaunchScreen.storyboard */; };
 		54915227203F339A009C7138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54915226203F339A009C7138 /* Assets.xcassets */; };
+		8177076B204492D600E206BD /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177076A204492D600E206BD /* StorageService.swift */; };
 		81EAB69820446262001D0E60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81EAB69720446261001D0E60 /* GoogleService-Info.plist */; };
 		81EAB69A20446365001D0E60 /* AuthUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB69920446365001D0E60 /* AuthUserService.swift */; };
 		81EAB69C204463D5001D0E60 /* AuthUserServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB69B204463D5001D0E60 /* AuthUserServiceDelegate.swift */; };
@@ -22,7 +23,6 @@
 		81EAB6A7204472A3001D0E60 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A6204472A3001D0E60 /* FeedViewController.swift */; };
 		81EAB6A9204472B1001D0E60 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6A8204472B1001D0E60 /* UploadViewController.swift */; };
 		81EAB6AC204473BE001D0E60 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6AB204473BE001D0E60 /* PostTableViewCell.swift */; };
-		81EAB6AE204486A7001D0E60 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAB6AD204486A7001D0E60 /* StorageService.swift */; };
 		8365E27D0D4671FCB8A3897A /* Pods_AC_iOS_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9371F73F5020F73AC5E13FF9 /* Pods_AC_iOS_Final.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +35,7 @@
 		5491521E203F335F009C7138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54915220203F335F009C7138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54915226203F339A009C7138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8177076A204492D600E206BD /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		81EAB69720446261001D0E60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81EAB69920446365001D0E60 /* AuthUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserService.swift; sourceTree = "<group>"; };
 		81EAB69B204463D5001D0E60 /* AuthUserServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserServiceDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		81EAB6A6204472A3001D0E60 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		81EAB6A8204472B1001D0E60 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		81EAB6AB204473BE001D0E60 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		81EAB6AD204486A7001D0E60 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		9371F73F5020F73AC5E13FF9 /* Pods_AC_iOS_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC_iOS_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FF4A6EF8F9E9BD711310B8 /* Pods-AC-iOS-Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +132,7 @@
 				81EAB69D2044656C001D0E60 /* DBService.swift */,
 				81EAB69F2044661D001D0E60 /* DBService+Add.swift */,
 				81EAB6A420446818001D0E60 /* DBService+Get.swift */,
-				81EAB6AD204486A7001D0E60 /* StorageService.swift */,
+				8177076A204492D600E206BD /* StorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -290,7 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81EAB6AC204473BE001D0E60 /* PostTableViewCell.swift in Sources */,
-				81EAB6AE204486A7001D0E60 /* StorageService.swift in Sources */,
+				8177076B204492D600E206BD /* StorageService.swift in Sources */,
 				81EAB6A520446818001D0E60 /* DBService+Get.swift in Sources */,
 				81EAB6A9204472B1001D0E60 /* UploadViewController.swift in Sources */,
 				81EAB6A7204472A3001D0E60 /* FeedViewController.swift in Sources */,

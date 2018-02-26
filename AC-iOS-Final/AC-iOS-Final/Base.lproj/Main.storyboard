@@ -118,7 +118,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Fb0-iu-R1x">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fb0-iu-R1x">
                                 <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -159,6 +159,7 @@
                     <connections>
                         <outlet property="commentTextView" destination="jLg-Us-3LL" id="jIi-WY-GhB"/>
                         <outlet property="imageView" destination="Fb0-iu-R1x" id="PU8-jY-WnL"/>
+                        <outlet property="invisibleCameraButton" destination="5as-vm-2HW" id="6FJ-ql-Ybx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YP-un-pnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,8 +294,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera_icon" width="60" height="55"/>
         <image name="photostackbw" width="24" height="24"/>
-        <image name="upload" width="25" height="25"/>
+        <image name="upload" width="15" height="15"/>
     </resources>
 </document>

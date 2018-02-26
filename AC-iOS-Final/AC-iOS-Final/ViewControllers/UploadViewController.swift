@@ -13,6 +13,8 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
     
+    @IBOutlet weak var invisibleCameraButton: UIButton!
+    
     private var imagePickerVC = UIImagePickerController()
     
     @IBAction func invisibleAddPhotoButtonPressed(_ sender: UIButton) {
@@ -21,15 +23,19 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Upload Lomograph"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPost))
         
-        
+        self.imageView.image = #imageLiteral(resourceName: "camera_icon")
+        self.imageView.contentMode = .center
         self.imageView.layer.borderWidth = 0.5
         self.commentTextView.layer.borderWidth = 0.5
+        
+
+        
+        
         commentTextView.delegate = self
         imagePickerVC.delegate = self
         imagePickerVC.sourceType = .photoLibrary
@@ -75,6 +81,9 @@ extension UploadViewController: UIImagePickerControllerDelegate {
             return
         }
         self.imageView.image = image
+        if self.imageView.image != #imageLiteral(resourceName: "camera_icon") {
+            self.imageView.contentMode = .scaleAspectFit
+        }
         dismiss(animated: true, completion: nil)
     }
     

@@ -17,21 +17,37 @@ extension DBService {
             return
         }
         let ref = postsRef.childByAutoId()
-        let post = Post(image: image, comment: comment, userID: currentUser.uid)
+        let post = Post(image: image, comment: comment, userID: currentUser.uid, postID: ref.key)
         
         ref.setValue(["userID": post.userID,
-                      "comment": post.comment]) { (error, _) in
-                        if let error = error {
-                            print("Failed to add post")
-                        } else {
-                            print("New post added to database")
-                        }
-                        
-                        
-                        
+                      "comment": post.comment
+        ]) { (error, _) in
+            if let error = error {
+                print("Failed to add post")
+            } else {
+                print("New post added to database")
+            }
+            
+            
+            
+        }
+        StorageService.manager.storePostImage(image: image, withPostID: post.postID) { (errorMessage, _) in
+            if let errorMessage = errorMessage {
+                print(errorMessage)
+            }
         }
         
-        
     }
+    
+//    public func addImageURLToPost(url: String, userID: String) {
+//        ref.child()
+//        addImageURL(url: url, toRef: postsRef, withID: userID)
+//    }
+    
+    
+//    private func addImageURL(url: String, toRef ref: DatabaseReference, withID id: String) {
+//        ref.child(id).child("imageURL").setValue(url)
+//        print("added image url")
+//    }
     
 }

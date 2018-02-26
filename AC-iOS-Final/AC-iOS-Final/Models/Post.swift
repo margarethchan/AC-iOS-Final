@@ -13,4 +13,5 @@ struct Post {
     let image: UIImage
     let comment: String
     let userID: String
+    let postID: String
 }
