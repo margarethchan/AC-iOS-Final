@@ -1,23 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MarkerFeltWide.ttf">
+            <string>MarkerFelt-Wide</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="AC_iOS_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EaD-Mc-k76">
+                                <rect key="frame" x="47" y="268.5" width="281" height="75"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKk-l8-P6t">
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y42-1y-GwG">
+                                        <rect key="frame" x="0.0" y="45" width="281" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="XKk-l8-P6t" firstAttribute="width" secondItem="EaD-Mc-k76" secondAttribute="width" id="PIs-9Y-HOv"/>
+                                    <constraint firstItem="Y42-1y-GwG" firstAttribute="width" secondItem="XKk-l8-P6t" secondAttribute="width" id="vak-Yp-rZp"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0ay-Kb-U7S">
+                                <rect key="frame" x="47" y="363.5" width="281" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PWL-jB-wlP">
+                                        <rect key="frame" x="0.0" y="0.0" width="140.5" height="30"/>
+                                        <state key="normal" title="SIGN IN"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bQy-6f-UqG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZl-57-8aj">
+                                        <rect key="frame" x="140.5" y="0.0" width="140.5" height="30"/>
+                                        <state key="normal" title="REGISTER"/>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ri3-33-anr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LomograFeed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXX-hm-tHh">
+                                <rect key="frame" x="9.5" y="36.5" width="356" height="133.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="tXX-hm-tHh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.3" id="AIl-Pl-ZZ0"/>
+                            <constraint firstItem="tXX-hm-tHh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ej1-xB-yEK"/>
+                            <constraint firstItem="tXX-hm-tHh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="HGj-Jr-jGZ"/>
+                            <constraint firstItem="EaD-Mc-k76" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Wkl-RQ-oOg"/>
+                            <constraint firstItem="tXX-hm-tHh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.95" id="kLz-U9-FdX"/>
+                            <constraint firstItem="0ay-Kb-U7S" firstAttribute="width" secondItem="EaD-Mc-k76" secondAttribute="width" id="mQC-c2-vdR"/>
+                            <constraint firstItem="0ay-Kb-U7S" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mwP-59-2ei"/>
+                            <constraint firstItem="0ay-Kb-U7S" firstAttribute="top" secondItem="EaD-Mc-k76" secondAttribute="bottom" constant="20" id="q8z-ht-Rlw"/>
+                            <constraint firstItem="EaD-Mc-k76" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="rfS-nP-P2L"/>
+                            <constraint firstItem="EaD-Mc-k76" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="y1I-dK-NM1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vzv-U9-gOb" appends="YES" id="zPF-nW-3J0"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="appNameLabel" destination="tXX-hm-tHh" id="Pqh-6N-EIY"/>
+                        <outlet property="emailTextField" destination="XKk-l8-P6t" id="pfF-B5-klb"/>
+                        <outlet property="loginButton" destination="PWL-jB-wlP" id="kDA-rr-KOc"/>
+                        <outlet property="passwordTextField" destination="Y42-1y-GwG" id="0FA-kW-O2h"/>
+                        <outlet property="registerButton" destination="TZl-57-8aj" id="Wck-rt-abg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Vzv-U9-gOb">
+                    <connections>
+                        <action selector="tapOutsideTextfield:" destination="BYZ-38-t0r" id="xUT-FE-afm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
