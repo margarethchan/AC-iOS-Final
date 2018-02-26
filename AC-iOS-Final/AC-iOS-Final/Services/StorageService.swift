@@ -21,14 +21,14 @@ class StorageService {
     private let imagesRef: StorageReference!
     
 
-    public func storePostImage(image: UIImage?, withPostID postID: String, completion: @escaping (_ error: String?, _ imageURL: String?) -> Void) {
+    public func storePostImage(image: UIImage?, withUserID userID: String, completion: @escaping (_ error: String?, _ imageURL: String?) -> Void) {
         //should only store image if the user added one, else doesn't store image url for that post
         guard let image = image else {
             print("no image submitted")
             return
         }
         
-        guard let uploadTask = StorageService.manager.storeImage(image, withImageID: postID, completion: completion) else {
+        guard let uploadTask = StorageService.manager.storeImage(image, withImageID: userID, completion: completion) else {
             completion("Could not convert image to toucan or data", nil)
             return
         }

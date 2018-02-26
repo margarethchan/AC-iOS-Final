@@ -11,9 +11,29 @@ import FirebaseDatabase
 
 extension DBService {
     
-//    public func getUserProfile(withUID uid: String, completion: @escaping (_ user: AppUser) -> Void) {
-//        let ref = postsRef.child(uid)
-//    }
-    
-    
+    public func getAllPosts(completion: @escaping (_ posts: [Post]) -> Void) {
+        postsRef.observeSingleEvent(of: .value) { (dataSnapshot) in
+            var posts: [Post] = []
+            guard let postSnapshots = dataSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            for postSnapshot in postSnapshots {
+                guard let postDict = postSnapshot.value as? [String: Any] else {
+                    return
+                }
+                guard
+                let caption = postDict["comment"] as? String,
+                let userID = postDict["userID"] as? String
+//                let postID = postDict["postID"] as? String
+                else {
+                    print("Couldn't get post")
+                    return
+                }
+                let imageURL = postDict["imageURL"] as? String
+                let post = Post(comment: caption, userID: userID)
+                posts.append(post)
+            }
+            completion(posts)
+        }
+    }
 }

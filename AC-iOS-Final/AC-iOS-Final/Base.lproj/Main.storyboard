@@ -118,40 +118,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fb0-iu-R1x">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYR-mG-dyW">
+                                <rect key="frame" x="0.0" y="34" width="375" height="584"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fb0-iu-R1x">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Fb0-iu-R1x" secondAttribute="height" multiplier="1:1" id="pOv-7t-jSt"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5as-vm-2HW" userLabel="InvisibleAddPhotoButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <connections>
+                                            <action selector="invisibleAddPhotoButtonPressed:" destination="xcJ-EJ-hph" eventType="touchUpInside" id="MBG-DT-Sse"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write about your Lomograph" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-Us-3LL">
+                                        <rect key="frame" x="10" y="383" width="355" height="159"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Fb0-iu-R1x" secondAttribute="height" multiplier="1:1" id="pOv-7t-jSt"/>
+                                    <constraint firstItem="jLg-Us-3LL" firstAttribute="centerX" secondItem="EYR-mG-dyW" secondAttribute="centerX" id="1Tf-7A-8gY"/>
+                                    <constraint firstItem="jLg-Us-3LL" firstAttribute="leading" secondItem="EYR-mG-dyW" secondAttribute="leading" constant="10" id="1uD-It-ecA"/>
+                                    <constraint firstItem="5as-vm-2HW" firstAttribute="top" secondItem="Fb0-iu-R1x" secondAttribute="top" id="FzV-S3-ds6"/>
+                                    <constraint firstItem="5as-vm-2HW" firstAttribute="width" secondItem="Fb0-iu-R1x" secondAttribute="width" id="H6F-lN-fEg"/>
+                                    <constraint firstItem="Fb0-iu-R1x" firstAttribute="leading" secondItem="EYR-mG-dyW" secondAttribute="leading" id="KcC-Yq-wum"/>
+                                    <constraint firstItem="5as-vm-2HW" firstAttribute="height" secondItem="Fb0-iu-R1x" secondAttribute="height" id="LsR-5Z-LTK"/>
+                                    <constraint firstItem="5as-vm-2HW" firstAttribute="leading" secondItem="Fb0-iu-R1x" secondAttribute="leading" id="Q6M-h1-oa4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fb0-iu-R1x" secondAttribute="trailing" id="QMc-qz-b6K"/>
+                                    <constraint firstItem="jLg-Us-3LL" firstAttribute="top" secondItem="5as-vm-2HW" secondAttribute="bottom" constant="8" id="Vnf-9z-hpL"/>
+                                    <constraint firstAttribute="bottom" secondItem="jLg-Us-3LL" secondAttribute="bottom" constant="12" id="bGR-co-baS"/>
+                                    <constraint firstItem="5as-vm-2HW" firstAttribute="trailing" secondItem="Fb0-iu-R1x" secondAttribute="trailing" id="cMa-CT-O8F"/>
+                                    <constraint firstItem="Fb0-iu-R1x" firstAttribute="top" secondItem="EYR-mG-dyW" secondAttribute="top" id="fmW-8l-EMy"/>
+                                    <constraint firstAttribute="trailing" secondItem="jLg-Us-3LL" secondAttribute="trailing" constant="10" id="lkQ-YN-UeO"/>
+                                    <constraint firstItem="Fb0-iu-R1x" firstAttribute="width" secondItem="EYR-mG-dyW" secondAttribute="width" id="oVz-qJ-CgC"/>
                                 </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write about your Lomograph" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-Us-3LL">
-                                <rect key="frame" x="10" y="449" width="355" height="159"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5as-vm-2HW" userLabel="InvisibleAddPhotoButton">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
-                                <connections>
-                                    <action selector="invisibleAddPhotoButtonPressed:" destination="xcJ-EJ-hph" eventType="touchUpInside" id="MBG-DT-Sse"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Fb0-iu-R1x" firstAttribute="top" secondItem="Dgv-df-m2i" secondAttribute="top" id="0ZT-Az-bFV"/>
-                            <constraint firstItem="Dgv-df-m2i" firstAttribute="trailing" secondItem="5as-vm-2HW" secondAttribute="trailing" id="0fT-bx-DNT"/>
-                            <constraint firstItem="jLg-Us-3LL" firstAttribute="leading" secondItem="Dgv-df-m2i" secondAttribute="leading" constant="10" id="LTQ-8s-8Lg"/>
-                            <constraint firstItem="Fb0-iu-R1x" firstAttribute="leading" secondItem="Dgv-df-m2i" secondAttribute="leading" id="Lhf-MP-p23"/>
-                            <constraint firstItem="5as-vm-2HW" firstAttribute="height" secondItem="Fb0-iu-R1x" secondAttribute="height" id="O3u-Vb-sI9"/>
-                            <constraint firstItem="Dgv-df-m2i" firstAttribute="trailing" secondItem="Fb0-iu-R1x" secondAttribute="trailing" id="OCu-DI-2pc"/>
-                            <constraint firstItem="5as-vm-2HW" firstAttribute="width" secondItem="Fb0-iu-R1x" secondAttribute="width" id="RAq-84-gnA"/>
-                            <constraint firstItem="Dgv-df-m2i" firstAttribute="bottom" secondItem="jLg-Us-3LL" secondAttribute="bottom" constant="10" id="V2a-Yy-sym"/>
-                            <constraint firstItem="5as-vm-2HW" firstAttribute="top" secondItem="Dgv-df-m2i" secondAttribute="top" id="bml-2i-m4i"/>
-                            <constraint firstItem="Dgv-df-m2i" firstAttribute="trailing" secondItem="jLg-Us-3LL" secondAttribute="trailing" constant="10" id="tmD-Jl-x0j"/>
-                            <constraint firstItem="5as-vm-2HW" firstAttribute="leading" secondItem="Dgv-df-m2i" secondAttribute="leading" id="xFM-uT-zF2"/>
-                            <constraint firstItem="jLg-Us-3LL" firstAttribute="top" secondItem="Fb0-iu-R1x" secondAttribute="bottom" constant="10" id="zgV-Rq-aJV"/>
+                            <constraint firstItem="Dgv-df-m2i" firstAttribute="bottom" secondItem="jLg-Us-3LL" secondAttribute="bottom" constant="12" id="523-Xl-Xys"/>
+                            <constraint firstItem="Dgv-df-m2i" firstAttribute="bottom" secondItem="EYR-mG-dyW" secondAttribute="bottom" id="6CR-Bq-pZG"/>
+                            <constraint firstItem="EYR-mG-dyW" firstAttribute="leading" secondItem="Dgv-df-m2i" secondAttribute="leading" id="XPj-SG-kyD"/>
+                            <constraint firstItem="EYR-mG-dyW" firstAttribute="top" secondItem="Dgv-df-m2i" secondAttribute="top" constant="-30" id="XrL-hJ-ZHF"/>
+                            <constraint firstItem="Dgv-df-m2i" firstAttribute="trailing" secondItem="EYR-mG-dyW" secondAttribute="trailing" id="nIY-1J-gHe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dgv-df-m2i"/>
                     </view>
@@ -160,11 +174,12 @@
                         <outlet property="commentTextView" destination="jLg-Us-3LL" id="jIi-WY-GhB"/>
                         <outlet property="imageView" destination="Fb0-iu-R1x" id="PU8-jY-WnL"/>
                         <outlet property="invisibleCameraButton" destination="5as-vm-2HW" id="6FJ-ql-Ybx"/>
+                        <outlet property="scrollView" destination="EYR-mG-dyW" id="WLl-lh-KC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YP-un-pnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2079" y="95"/>
+            <point key="canvasLocation" x="2077.5999999999999" y="94.902548725637189"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="QCg-nq-uIX">
@@ -194,7 +209,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXV-ZF-cfj">
                                                     <rect key="frame" x="15" y="386" width="345" height="53"/>
-                                                    <color key="backgroundColor" red="1" green="0.63578296599999995" blue="0.66844335269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.1163253469" green="0.94583843710000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

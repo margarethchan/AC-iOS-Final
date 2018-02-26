@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class UploadViewController: UIViewController, UINavigationControllerDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentTextView: UITextView!
     
@@ -19,8 +21,32 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func invisibleAddPhotoButtonPressed(_ sender: UIButton) {
         print("Invisible Add Photo Button Pressed")
-        present(imagePickerVC, animated: true, completion: nil)
+        self.imagePickerVC.sourceType = .photoLibrary
+        self.checkAVAuthorization()
         
+        
+    }
+    
+    private func checkAVAuthorization() {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        switch status {
+        case .notDetermined:
+            print("notDetermined")
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted) in
+                if granted {
+                    self.present(self.imagePickerVC, animated: true, completion: nil)
+                } else {
+                    self.showAlert(title: "Camera Rolled access prevented", message: "")
+                }
+            })
+        case .denied:
+            print("denied")
+        case .authorized:
+            print("authorized")
+            present(imagePickerVC, animated: true, completion: nil)
+        case .restricted:
+            print("restricted")
+        }
     }
     
     override func viewDidLoad() {
@@ -34,30 +60,42 @@ class UploadViewController: UIViewController, UINavigationControllerDelegate {
         self.commentTextView.layer.borderWidth = 0.5
         
 
-        
+
         
         commentTextView.delegate = self
         imagePickerVC.delegate = self
         imagePickerVC.sourceType = .photoLibrary
     }
 
+
     @objc private func addPost() {
-        if let postCaption = self.commentTextView.text, postCaption != "Write about your Lomograph" {
-            
-            let image = self.imageView.image
-            DBService.manager.addPost(withImage: image!, comment: postCaption)
+        if let postCaption = self.commentTextView.text, postCaption != "Write about your Lomograph", let image = self.imageView.image, image != #imageLiteral(resourceName: "camera_icon") {
+            DBService.manager.addPost(withImage: image, comment: postCaption)
             print("Post Added")
+            showAlert(title: "Post added to Feed", message: "")
         } else {
             print("Failed to Add Post")
+            showAlert(title: "Make sure to add both a Photo and a Caption", message: "")
         }
     }
-    
+
     public static func storyboardInstance() -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let presentedVC = storyboard.instantiateViewController(withIdentifier: "UploadViewController") as! UploadViewController
         let navController = UINavigationController(rootViewController: presentedVC)
         return navController
     }
+
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alert in }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var safeAreaBottomConstraint: NSLayoutConstraint!
+    
 
 }
 
@@ -70,6 +108,7 @@ extension UploadViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         textView.resignFirstResponder()
     }
+
     
 }
 

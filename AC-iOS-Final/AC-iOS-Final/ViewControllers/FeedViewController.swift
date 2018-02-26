@@ -14,20 +14,27 @@ class FeedViewController: UIViewController {
     
     var posts: [Post] = [] {
         didSet {
+            self.tableView.reloadData()
             print("\(posts.count) posts loaded")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        DBService.manager.getAllPosts { (onlinePosts) in
+            self.posts = onlinePosts
+        }
+        
         navigationItem.title = "LomograFeed"
         tableView.allowsSelection = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 200
-        // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.estimatedRowHeight = 200
+        
+
+        
     }
 
     
@@ -45,8 +52,8 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! PostTableViewCell
         let post = posts[indexPath.row]
-        cell.postImageView.image = post.image
-        cell.postLabel.text = post.comment
+        cell.configureCell(withPost: post)
+        print("post: \(post)")
         return cell
     }
     
