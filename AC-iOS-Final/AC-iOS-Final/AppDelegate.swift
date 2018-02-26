@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let firstTabNavCon = UINavigationController(rootViewController: feedVC)
             
             let uploadVC = storyboard.instantiateViewController(withIdentifier: "UploadViewController") as! UploadViewController
-            uploadVC.tabBarItem = UITabBarItem(title: "All Flashcards", image: #imageLiteral(resourceName: "upload"), tag: 1)
+            uploadVC.tabBarItem = UITabBarItem(title: "Upload", image: #imageLiteral(resourceName: "upload"), tag: 1)
             let secondTabNavCon = UINavigationController(rootViewController: uploadVC)
             
             let tabBarCon = UITabBarController()

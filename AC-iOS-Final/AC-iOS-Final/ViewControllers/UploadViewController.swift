@@ -10,10 +10,22 @@ import UIKit
 
 class UploadViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var commentTextView: UITextView!
+    
+    @IBAction func invisibleAddPhotoButtonPressed(_ sender: UIButton) {
+        print("Invisible Add Photo Button Pressed")
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationItem.title = "Upload Lomograph"
+        self.imageView.layer.borderWidth = 0.5
+        self.commentTextView.layer.borderWidth = 0.5
+        commentTextView.delegate = self
     }
 
     public static func storyboardInstance() -> UINavigationController {
@@ -23,4 +35,16 @@ class UploadViewController: UIViewController {
         return navController
     }
 
+}
+
+extension UploadViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+        textView.becomeFirstResponder()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.resignFirstResponder()
+    }
+    
 }
