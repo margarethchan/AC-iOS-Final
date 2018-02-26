@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 
 class Post: NSObject {
-    let imageURL: String?
+    let image: UIImage
     let comment: String
     let userID: String
     let postID: String
     
-    init(comment: String, userID: String) {
+    init(image: UIImage, comment: String, userID: String) {
+        self.image = image
         self.comment = comment
         self.userID = userID
         self.postID = ""
-        self.imageURL = ""
     }
     
-    init(imageURL: String?, comment: String, userID: String, postID: String) {
-        self.imageURL = imageURL ?? ""
+    init(image: UIImage, comment: String, userID: String, postID: String) {
+        self.image = image
         self.comment = comment
         self.userID = userID
         self.postID = postID

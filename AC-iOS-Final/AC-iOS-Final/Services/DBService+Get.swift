@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import UIKit
 
 extension DBService {
     
@@ -17,20 +18,21 @@ extension DBService {
             guard let postSnapshots = dataSnapshot.children.allObjects as? [DataSnapshot] else {
                 return
             }
+            let ref = self.postsRef.childByAutoId()
             for postSnapshot in postSnapshots {
                 guard let postDict = postSnapshot.value as? [String: Any] else {
                     return
                 }
                 guard
                 let caption = postDict["comment"] as? String,
-                let userID = postDict["userID"] as? String
+                let userID = postDict["userID"] as? String,
 //                let postID = postDict["postID"] as? String
+                let image = postDict["postID"] as? UIImage
                 else {
                     print("Couldn't get post")
                     return
                 }
-                let imageURL = postDict["imageURL"] as? String
-                let post = Post(comment: caption, userID: userID)
+                let post = Post(image: image, comment: caption, userID: userID)
                 posts.append(post)
             }
             completion(posts)

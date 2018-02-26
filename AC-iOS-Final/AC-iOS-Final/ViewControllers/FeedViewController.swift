@@ -30,13 +30,13 @@ class FeedViewController: UIViewController {
         tableView.allowsSelection = false
         self.tableView.delegate = self
         self.tableView.dataSource = self
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
-//        self.tableView.estimatedRowHeight = 200
-        
-
-        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 200
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     
     public static func storyboardInstance() -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

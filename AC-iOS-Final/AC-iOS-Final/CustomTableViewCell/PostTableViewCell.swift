@@ -34,11 +34,11 @@ class PostTableViewCell: UITableViewCell {
     
     public func configureCell(withPost post: Post) {
         self.postLabel.text = post.comment
-        self.postImageView.image = nil
+        self.postImageView.image = post.image
         
-        if let postURLString = post.imageURL, let imageURL = URL(string: postURLString) {
-        }
-            
+//        if let postURLString = post.imageURL, let imageURL = URL(string: postURLString) {
+//        }
+        
     }
         
 }

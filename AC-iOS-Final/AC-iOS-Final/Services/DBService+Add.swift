@@ -17,7 +17,7 @@ extension DBService {
             return
         }
         let ref = postsRef.childByAutoId()
-        let post = Post(comment: comment, userID: ref.key)
+        let post = Post(image: image, comment: comment, userID: currentUser.uid, postID: ref.key)
         
         ref.setValue(["userID": post.userID,
                       "comment": post.comment
@@ -28,7 +28,7 @@ extension DBService {
                 print("New post added to database")
             }
         }
-        StorageService.manager.storePostImage(image: image, withUserID: post.postID) { (errorMessage, _) in
+        StorageService.manager.storePostImage(image: image, withPostID: post.postID) { (errorMessage, _) in
             if let errorMessage = errorMessage {
                 print(errorMessage)
             }
