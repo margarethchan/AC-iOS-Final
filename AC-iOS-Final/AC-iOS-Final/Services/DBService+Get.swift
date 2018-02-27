@@ -18,7 +18,6 @@ extension DBService {
             guard let postSnapshots = dataSnapshot.children.allObjects as? [DataSnapshot] else {
                 return
             }
-            let ref = self.postsRef.childByAutoId()
             for postSnapshot in postSnapshots {
                 guard let postDict = postSnapshot.value as? [String: Any] else {
                     return
@@ -27,12 +26,12 @@ extension DBService {
                 let caption = postDict["comment"] as? String,
                 let userID = postDict["userID"] as? String,
 //                let postID = postDict["postID"] as? String
-                let image = postDict["postID"] as? UIImage
+                let imageURL = postDict["imageURL"] as? String
                 else {
                     print("Couldn't get post")
                     return
                 }
-                let post = Post(image: image, comment: caption, userID: userID)
+                let post = Post(imageURL: imageURL, comment: caption, userID: userID)
                 posts.append(post)
             }
             completion(posts)

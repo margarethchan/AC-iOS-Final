@@ -40,8 +40,8 @@ class StorageService {
                 return
             }
             print("uploaded image")
-//            let downloadURLString = downloadURL.absoluteString
-//            DBService.manager.addImageURLToPost(url: downloadURLString, userID: userID)
+            let downloadURLString = downloadURL.absoluteString
+            DBService.manager.addImageURLToPost(url: downloadURLString, postID: postID)
 //            completion(nil, downloadURLString)
         }
         

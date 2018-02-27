@@ -7,23 +7,22 @@
 //
 
 import UIKit
+import Kingfisher
+
+
 
 class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postLabel: UILabel!
     
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style , reuseIdentifier: "FeedCell")
-    
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    
     }
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: false)
@@ -31,14 +30,14 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    
     public func configureCell(withPost post: Post) {
         self.postLabel.text = post.comment
-        self.postImageView.image = post.image
         
-//        if let postURLString = post.imageURL, let imageURL = URL(string: postURLString) {
-//        }
+        let imageURLString = post.imageURL
+        let imageURL = URL(string: imageURLString)
         
+        self.postImageView?.kf.indicatorType = .activity
+        self.postImageView?.kf.setImage(with: imageURL)
     }
         
 }

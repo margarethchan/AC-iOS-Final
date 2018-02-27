@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FeedViewController: UIViewController {
 
@@ -52,8 +53,17 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! PostTableViewCell
         let post = posts[indexPath.row]
-        cell.configureCell(withPost: post)
-        print("post: \(post)")
+//        cell.configureCell(withPost: post)
+    
+        cell.postLabel.text = post.comment
+        
+        let imageURLString = post.imageURL
+        print(post.imageURL)
+        let imageURL = URL(string: imageURLString)
+        
+        cell.postImageView?.kf.indicatorType = .activity
+        cell.postImageView?.kf.setImage(with: imageURL)
+        
         return cell
     }
     
