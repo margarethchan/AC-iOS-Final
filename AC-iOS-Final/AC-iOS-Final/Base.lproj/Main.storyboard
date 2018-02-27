@@ -22,7 +22,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="AC_iOS_Final" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="AC_iOS_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,7 +200,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="449.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QZs-gc-Ot8">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QZs-gc-Ot8">
                                                     <rect key="frame" x="0.0" y="11" width="375" height="375"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="QZs-gc-Ot8" secondAttribute="height" multiplier="1:1" id="WrJ-GP-25M"/>
@@ -208,7 +208,6 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXV-ZF-cfj">
                                                     <rect key="frame" x="15" y="386" width="345" height="53"/>
-                                                    <color key="backgroundColor" red="0.1163253469" green="0.94583843710000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -241,7 +240,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ofR-oK-HoG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Cjs-kd-Z5I"/>
+                    <navigationItem key="navigationItem" id="Cjs-kd-Z5I">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="I8r-e5-RUc">
+                            <connections>
+                                <action selector="logOutButton:" destination="qYd-sX-g5x" id="LzW-XQ-qLk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rST-ek-oPi" id="mvz-J3-VU6"/>
                     </connections>

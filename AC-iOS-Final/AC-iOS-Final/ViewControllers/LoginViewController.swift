@@ -77,9 +77,11 @@ class LoginViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             let feedVC = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as! FeedViewController
+            feedVC.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "photostackbw"), tag: 0)
             let firstTabNavCon = UINavigationController(rootViewController: feedVC)
             
             let uploadVC = storyboard.instantiateViewController(withIdentifier: "UploadViewController") as! UploadViewController
+            uploadVC.tabBarItem = UITabBarItem(title: "Upload", image: #imageLiteral(resourceName: "upload"), tag: 1)
             let secondTabNavCon = UINavigationController(rootViewController: uploadVC)
             
             let tabBarCon = UITabBarController()
@@ -106,6 +108,21 @@ extension LoginViewController: AuthUserServiceDelegate {
     
     func didLogin(_ authUserService: AuthUserService) {
     self.showAlertLoginSuccess(title: "Login Successful", message: "")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let feedVC = storyboard.instantiateViewController(withIdentifier: "FeedViewController") as! FeedViewController
+        feedVC.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "photostackbw"), tag: 0)
+        let firstTabNavCon = UINavigationController(rootViewController: feedVC)
+        
+        let uploadVC = storyboard.instantiateViewController(withIdentifier: "UploadViewController") as! UploadViewController
+        uploadVC.tabBarItem = UITabBarItem(title: "Upload", image: #imageLiteral(resourceName: "upload"), tag: 1)
+        let secondTabNavCon = UINavigationController(rootViewController: uploadVC)
+        
+        let tabBarCon = UITabBarController()
+        tabBarCon.viewControllers = [firstTabNavCon, secondTabNavCon]
+        present(tabBarCon, animated: true, completion: nil)
+        
         print("Login Successful")
         
         
